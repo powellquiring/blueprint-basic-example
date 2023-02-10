@@ -5,9 +5,6 @@ schema_version: "1.0.0"
 description: "Simple blueprint to demonstrate module linking"
 inputs:
   - name: x
-outputs:
-  - name: cos_id
-    value: $module.basic-cos-storage.outputs.cos_id
 settings:
   - name: TF_VERSION
     value: 1.0
