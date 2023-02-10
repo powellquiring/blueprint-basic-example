@@ -14,6 +14,9 @@ settings:
 modules:
  - name: ibm-watson-studio
    module_type: terraform
+   settings:
+     - name: TF_VERSION
+       value: 1.0
    source:
      source_type: github
      git:
