@@ -5,6 +5,9 @@ schema_version: "1.0.0"
 description: "Simple blueprint to demonstrate module linking"
 inputs:
   - name: x
+outputs:
+  - name: id
+    value: $module.ibm-watson-studio.outputs.id
 settings:
   - name: TF_VERSION
     value: 1.0
