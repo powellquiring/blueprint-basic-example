@@ -19,9 +19,6 @@ modules:
      git:
        git_repo_url: "https://github.com/terraform-ibm-modules/terraform-ibm-toolkit-watson-studio"
        git_branch: main
-   settings:
-     - name: TF_VERSION
-       value: "1.2"
    inputs:
      - name: resource_group_name
        value: $blueprint.x
