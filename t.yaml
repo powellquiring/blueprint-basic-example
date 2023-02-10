@@ -5,6 +5,7 @@ schema_version: "1.0.0"
 description: "Simple blueprint to demonstrate module linking"
 inputs:
   - name: x
+    type: string
 outputs:
   - name: id
     value: $module.ibm-watson-studio.outputs.id
@@ -23,6 +24,9 @@ modules:
        git_repo_url: "https://github.com/terraform-ibm-modules/terraform-ibm-toolkit-watson-studio"
        git_branch: main
    inputs:
+     - name: t1
+       value: $blueprint.x
+       type: bool
      - name: resource_group_name
        value: $blueprint.x
        description: Resource group where the cluster has been provisioned.
