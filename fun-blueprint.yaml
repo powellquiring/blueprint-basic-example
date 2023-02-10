@@ -49,9 +49,9 @@ settings:
 modules:
  - name: ibm-vpc
    module_type: terraform
+   source_type: github
    source:
      git:
-       source_type: github
        git_repo_url: "https://github.com/terraform-ibm-modules/terraform-ibm-toolkit-vpc"
    settings:
      - name: TF_VERSION
