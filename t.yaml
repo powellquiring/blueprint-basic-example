@@ -62,7 +62,6 @@ modules:
        default: studio
    outputs:
      - name: id
-       description: The id of the provisioned redis instance
      - name: name
      - name: crn
      - name: location
