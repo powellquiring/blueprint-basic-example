@@ -1,0 +1,11 @@
+resource_group_name: feedback
+region: us-south
+name: bp00
+name_prefix: bp00
+provision: true
+address_prefix_count: 3
+# address_prefixes
+#base_security_group_name
+#internal_cidr
+#tags
+#common_tags

@@ -1,0 +1,102 @@
+name: "a1 Blueprint Basic Example"
+# yaml-language-server: $schema=https://raw.githubusercontent.com/Cloud-Schematics/vscode-blueprint-schema/master/blueprint_schema.json
+type: "blueprint"
+schema_version: "1.0.0"
+description: "Simple blueprint to demonstrate module linking"
+inputs:
+  - name: cos_instance_name
+  - name: cos_storage_plan
+outputs:
+  - name: cos_id
+    value: $module.basic-cos-storage.outputs.cos_id
+settings:
+  - name: TF_VERSION
+    value: 1.0
+modules:
+ - name: ibm-vpc
+   module_type: terraform
+   source:
+     git:
+       source_type: github
+       git_repo_url: "https://github.com/terraform-ibm-modules/terraform-ibm-toolkit-vpc"
+   settings:
+     - name: TF_VERSION
+       value: "1.2"
+   inputs:
+     - name: resource_group_name
+       value:
+       description: The name of the IBM Cloud resource group where the VPC instance
+         will be created.
+       type: string
+     - name: region
+       value:
+       description: The IBM Cloud region where the cluster will be/has been installed.
+       type: string
+     - name: name
+       value:
+       description: The name of the vpc instance
+       type: string
+     - name: name_prefix
+       value:
+       description: The name of the vpc resource
+       type: string
+     - name: provision
+       value:
+       description: Flag indicating that the instance should be provisioned. If false
+         then an existing instance will be looked up
+       type: bool
+       default: true
+     - name: address_prefix_count
+       value:
+       description: The number of ipv4_cidr_blocks
+       type: number
+     - name: address_prefixes
+       value:
+       description: List of ipv4 cidr blocks for the address prefixes (e.g.
+         ['10.10.10.0/24']). If you are providing cidr blocks then a value must
+         be provided for each of the subnets. If you don't provide cidr blocks
+         for each of the subnets then values will be generated using the
+         {ipv4_address_count} value.
+       type: list(string)
+       default: []
+     - name: base_security_group_name
+       value:
+       description: The name of the base security group. If not provided the name will
+         be based on the vpc name
+       type: string
+     - name: internal_cidr
+       value:
+       description: The cidr range of the internal network
+       type: string
+       default: 10.0.0.0/8
+     - name: tags
+       value:
+       description: Tags that should be added to the instance
+       type: list(string)
+       default: []
+     - name: common_tags
+       value:
+       description: Common tags that should be added to the instance
+       type: list(string)
+       default: []
+   outputs:
+     - name: name
+       description: The name of the vpc instance
+     - name: id
+       description: The id of the vpc instance
+     - name: acl_id
+       description: The id of the network acl
+     - name: crn
+       description: The CRN for the vpc instance
+     - name: count
+       description: The number of VPCs created by this module. Always set to 1
+     - name: names
+       description: The name of the vpc instance
+     - name: ids
+       description: The id of the vpc instance
+     - name: base_security_group
+       description: The id of the base security group to be shared by other resources.
+         The base group is different from the default security group.
+     - name: addresses
+       description: The ip address ranges for the VPC
+ 
