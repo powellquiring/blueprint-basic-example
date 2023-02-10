@@ -34,7 +34,6 @@ modules:
        value: $blueprint.x
        description: Tags that should be applied to the service
        type: list(string)
-       #default: []
      - name: name_prefix
        value: $blueprint.x
        description: The prefix name for the service. If not provided it will default to
@@ -58,15 +57,9 @@ modules:
        default: studio
    outputs:
      - name: id
-       #description: The id of the provisioned redis instance
      - name: name
-       #description: The name of the provisioned redis instance
      - name: crn
-       #description: The id of the provisioned redis instance
      - name: location
-       #description: The location of the provisioned redis instance
      - name: service
-       #description: The name of the key provisioned for the redis instance
      - name: label
-       #description: The label for the redis instance
  
