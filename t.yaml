@@ -15,8 +15,8 @@ modules:
  - name: ibm-watson-studio
    module_type: terraform
    source:
+     source_type: github
      git:
-       source_type: github
        git_repo_url: "https://github.com/terraform-ibm-modules/terraform-ibm-toolkit-watson-studio"
    settings:
      - name: TF_VERSION
@@ -34,7 +34,7 @@ modules:
        value: $blueprint.x
        description: Tags that should be applied to the service
        type: list(string)
-       default: []
+       #default: []
      - name: name_prefix
        value: $blueprint.x
        description: The prefix name for the service. If not provided it will default to
@@ -58,15 +58,15 @@ modules:
        default: studio
    outputs:
      - name: id
-       description: The id of the provisioned redis instance
+       #description: The id of the provisioned redis instance
      - name: name
-       description: The name of the provisioned redis instance
+       #description: The name of the provisioned redis instance
      - name: crn
-       description: The id of the provisioned redis instance
+       #description: The id of the provisioned redis instance
      - name: location
-       description: The location of the provisioned redis instance
+       #description: The location of the provisioned redis instance
      - name: service
-       description: The name of the key provisioned for the redis instance
+       #description: The name of the key provisioned for the redis instance
      - name: label
-       description: The label for the redis instance
+       #description: The label for the redis instance
  
