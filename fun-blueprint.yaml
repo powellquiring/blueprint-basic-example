@@ -40,26 +40,6 @@ inputs:
       {ipv4_address_count} value.
     type: list(string)
     #default: []
-  - name: base_security_group_name
-    value:
-    description: The name of the base security group. If not provided the name will
-      be based on the vpc name
-    type: string
-  - name: internal_cidr
-    value:
-    description: The cidr range of the internal network
-    type: string
-    default: 10.0.0.0/8
-  - name: tags
-    value:
-    description: Tags that should be added to the instance
-    type: list(string)
-    default: []
-  - name: common_tags
-    value:
-    description: Common tags that should be added to the instance
-    type: list(string)
-    default: []
 outputs:
   - name: cos_id
     value: $module.basic-cos-storage.outputs.cos_id
@@ -112,27 +92,7 @@ modules:
          for each of the subnets then values will be generated using the
          {ipv4_address_count} value.
        type: list(string)
-       default: []
-     - name: base_security_group_name
-       value: $blueprint.base_security_group_name
-       description: The name of the base security group. If not provided the name will
-         be based on the vpc name
-       type: string
-     - name: internal_cidr
-       value: $blueprint.internal_cidr
-       description: The cidr range of the internal network
-       type: string
-       default: 10.0.0.0/8
-     - name: tags
-       value: $blueprint.tags
-       description: Tags that should be added to the instance
-       type: list(string)
-       default: []
-     - name: common_tags
-       value: $blueprint.common_tags
-       description: Common tags that should be added to the instance
-       type: list(string)
-       default: []
+       #default: []
    outputs:
      - name: name
        description: The name of the vpc instance
