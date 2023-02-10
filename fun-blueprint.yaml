@@ -39,7 +39,7 @@ inputs:
       for each of the subnets then values will be generated using the
       {ipv4_address_count} value.
     type: list(string)
-    default: []
+    #default: []
   - name: base_security_group_name
     value:
     description: The name of the base security group. If not provided the name will
